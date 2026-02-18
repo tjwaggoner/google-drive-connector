@@ -1,0 +1,45 @@
+bundle:
+  name: google-drive-connector
+
+variables:
+  catalog:
+    description: Unity Catalog catalog for ingested data
+    default: main
+  schema:
+    description: Schema within the catalog
+    default: google_drive
+  connection_name:
+    description: Name of the Google Drive UC connection
+    default: google_drive_connection
+
+resources:
+  jobs:
+    google_drive_ingest:
+      name: "google-drive-ingest-${bundle.target}"
+      tasks:
+        - task_key: ingest_files
+          notebook_task:
+            notebook_path: ./src/notebooks/ingest.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              connection_name: ${var.connection_name}
+          new_cluster:
+            spark_version: "17.3.x-scala2.12"
+            num_workers: 1
+            node_type_id: "i3.xlarge"
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: ${DATABRICKS_HOST}
+
+  prod:
+    mode: production
+    workspace:
+      host: ${DATABRICKS_HOST}
+    variables:
+      catalog: main
+      schema: google_drive
