@@ -32,7 +32,10 @@ Reads a Google Sheet into Unity Catalog Delta tables. Discovers all tabs automat
    - See: https://docs.databricks.com/gcp/en/ingestion/google-drive
 
 4. Create the Google Drive connection in Catalog Explorer UI (Catalog > Connections > Create)
-   - **IMPORTANT**: per the [Google Drive connector setup](https://docs.databricks.com/gcp/en/ingestion/google-drive), use `https://www.googleapis.com/auth/drive.readonly` as the `oauth_scope` name
+   - Connection type: Google Drive
+   - Enter your Google OAuth **client_id** and **client_secret** from step 2
+   - Set `https://www.googleapis.com/auth/drive.readonly` as the `oauth_scope`
+   - Complete the browser-based OAuth consent when prompted
    - This requires interactive OAuth consent and cannot be automated
 
 5. Update the configuration variables in `ingest.py`:
