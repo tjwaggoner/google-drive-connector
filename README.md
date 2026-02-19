@@ -52,6 +52,8 @@ Reads a Google Sheet into Unity Catalog Delta tables. Discovers all tabs automat
 
 ## How it works
 
+- Uses `listSheets` to discover all tabs in the Google Sheet, then loops through each one and writes it as a separate Delta table
 - `headerRows=0` reads everything as strings to avoid Delta column name restrictions
 - First row is extracted as header, cleaned to snake_case, and applied as column names
 - All data types are string as a result — cast downstream as needed
+- If you wish to change how schemas are detected, reference the docs under [Reference](#reference)
