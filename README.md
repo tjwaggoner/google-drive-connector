@@ -43,7 +43,7 @@ Reads a Google Sheet into Unity Catalog Delta tables. Discovers all tabs automat
    gsheet_id = "your-google-sheet-id"  # the ID from the Sheet URL: docs.google.com/spreadsheets/d/<this-part>/edit
    ```
 
-6. Deploy to your workspace (deploys to `/Workspace/Users/<your-email>/google-drive-connector/`):
+6. Deploy to your workspace:
    ```bash
    uv run python deploy.py
    ```
