@@ -22,6 +22,7 @@ Reads a Google Sheet into Unity Catalog Delta tables. Discovers all tabs automat
    ```
 
 2. Create Google OAuth credentials in [GCP Console](https://console.cloud.google.com/apis/credentials):
+   - '+ Create Credentials' -> 'OAuth Client ID'
    - Application type: Web application
    - Authorized redirect URI: `https://<your-workspace>.cloud.databricks.com/login/oauth/google.html`
    - Add scope `https://www.googleapis.com/auth/drive.readonly` to the OAuth consent screen
