@@ -10,7 +10,7 @@ Reads a Google Sheet into Unity Catalog Delta tables. Discovers all tabs automat
 ## Prerequisites
 
 - Databricks workspace with DBR 17.3+
-- [uv](https://docs.astral.sh/uv/) and [Databricks CLI](https://docs.databricks.com/dev-tools/cli/install.html)
+- [uv](https://docs.astral.sh/uv/) (a fast Python package manager; you can also use `pip install -r requirements.txt` if you prefer) and [Databricks CLI](https://docs.databricks.com/dev-tools/cli/install.html)
 
 ## Setup
 
